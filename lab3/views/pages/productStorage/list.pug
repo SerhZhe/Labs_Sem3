@@ -1,0 +1,26 @@
+extends ../../layout
+
+block content
+  h3 Product List
+
+  a(href='/productStorage/add' class="btn btn-default") Add
+
+  table(class="table")
+    thead
+      tr
+        th Storage
+        th Product
+    tbody
+      each productStorage in productStorages
+        tr
+          td #{productStorage.storage}
+          td #{productStorage.product}
+          td
+            form(action=`remove/${productStorage.id}`, method='get')
+              button(type='submit') Delete
+          td
+            form(action=`toStorage/${productStorage.id}`, method='get')
+              button(type='submit') Move Product to another Storage
+          td
+            form(action=`toShop/${productStorage.id}`, method='get')
+              button(type='submit') Move Product to Shop

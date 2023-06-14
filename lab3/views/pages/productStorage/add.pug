@@ -1,0 +1,24 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='productStorage-add-form' name='productStorage-add-form' class='form-horizontal' method="POST" action='')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='storage') Storage
+        div(class='col-md-9')
+          select(id='storage' name='storage' class='form-control')
+            option(value='') Select a storage
+            each storage in storages
+              option(value=storage.number)= `${storage.number} , ${storage.shop}`
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='product') Product
+        div(class='col-md-9')
+          select(id='product' name='product' class='form-control')
+            option(value='') Select a product
+            each product in products
+              option(value=product.code)= `${product.code} , ${product.name}`
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create
